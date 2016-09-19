@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:aether="antlib:org.eclipse.aether.ant"
+         xmlns:artifact="antlib:org.apache.maven.artifact.ant"
+         xmlns:ball="antlib:ball.util.ant"
+         xmlns:ivy="antlib:org.apache.ivy.ant"
+         xmlns:spring-boot="antlib:org.springframework.boot.ant"
+         name="ball-jpa" basedir="." default="jar">
+
+  <description>
+    ball-jpa.jar
+    ------------------------------
+    JPA Implementation (Hibernate)
+
+    $Id$
+  </description>
+
+  <aether:resolve>
+    <dependencies>
+      <dependency coords="ball:parent:1.0:xml:compile"/>
+    </dependencies>
+    <properties/>
+  </aether:resolve>
+  <import file="${ball:parent:xml}"/>
+
+</project>
