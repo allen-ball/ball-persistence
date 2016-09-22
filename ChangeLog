@@ -1,3 +1,8 @@
+2016-09-21  Allen D. Ball  <ball@sol.local>
+
+	* src/main/java/ball/jpa/ant/taskdefs/EntityManagerTask.java:
+	Initial writing.
+
 2016-09-18  Allen D. Ball  <ball@sol.local>
 
 	* Initial writing.
