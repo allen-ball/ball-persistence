@@ -29,6 +29,14 @@
       <artifactId>ball-util</artifactId>
     </dependency>
     <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.apache.ant</groupId>
       <artifactId>ant</artifactId>
       <scope>provided</scope>
@@ -43,8 +51,13 @@
     </dependency>
     <!-- Runtime -->
     <dependency>
+      <groupId>org.apache.derby</groupId>
+      <artifactId>derby</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
       <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-c3p0</artifactId>
+      <artifactId>hibernate-hikaricp</artifactId>
       <scope>runtime</scope>
     </dependency>
     <dependency>
