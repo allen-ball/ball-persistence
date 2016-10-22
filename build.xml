@@ -22,4 +22,14 @@
   </aether:resolve>
   <import file="${ball:parent:xml}"/>
 
+  <target name="sql"
+          description="--> Invokes &lt;sql/&gt; task."
+          depends="jar-classes">
+    <sql classpathref="runtime.classpath"
+         driver="${driver}"
+         url="${url}" userId="${userId}" password="${password}">
+      ${sql}
+    </sql>
+  </target>
+
 </project>
