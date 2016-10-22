@@ -18,7 +18,7 @@ public class AbstractEntity {
     /**
      * Sole constructor.
      */
-    protected AbstractEntity() { super(); }
+    protected AbstractEntity() { }
 
     @Override
     public String toString() { return new BeanMap(this).toString(); }
