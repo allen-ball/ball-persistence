@@ -1,3 +1,8 @@
+2016-10-28  Allen D. Ball  <ball@sol.local>
+
+	* src/main/java/ball/jpa/ant/taskdefs/EntityManagerTask.java:
+	Display attributes of the Metamoddel.
+
 2016-10-22  Allen D. Ball  <ball@sol.local>
 
 	* build.xml: Added <sql/> target.

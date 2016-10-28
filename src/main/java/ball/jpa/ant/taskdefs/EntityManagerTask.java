@@ -5,6 +5,7 @@
  */
 package ball.jpa.ant.taskdefs;
 
+import ball.util.BeanMap;
 import ball.util.MapUtil;
 import ball.util.PropertiesImpl;
 import ball.util.ant.taskdefs.AbstractClasspathTask;
@@ -13,6 +14,8 @@ import ball.util.ant.taskdefs.NotNull;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.metamodel.EntityType;
+import javax.persistence.metamodel.Metamodel;
 import org.apache.tools.ant.BuildException;
 
 /**
@@ -117,7 +120,11 @@ public abstract class EntityManagerTask extends AbstractClasspathTask {
             super.execute();
 
             try {
-                manager();
+                Metamodel metamodel = manager().getMetamodel();
+
+                for (EntityType<?> type : metamodel.getEntities()) {
+                    log(String.valueOf(new BeanMap(type)));
+                }
             } catch (BuildException exception) {
                 throw exception;
             } catch (Throwable throwable) {
