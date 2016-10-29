@@ -4,12 +4,12 @@
          xmlns:ball="antlib:ball.util.ant"
          xmlns:ivy="antlib:org.apache.ivy.ant"
          xmlns:spring-boot="antlib:org.springframework.boot.ant"
-         name="ball-jpa" basedir="." default="jar">
+         name="ball-persistence" basedir="." default="jar">
 
   <description>
-    ball-jpa.jar
-    ------------------------------
-    JPA Implementation (Hibernate)
+    ball-persistence.jar
+    --------------------------------------
+    Persistence Implementation (Hibernate)
 
     $Id$
   </description>

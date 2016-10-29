@@ -3,7 +3,7 @@
  *
  * Copyright 2016 Allen D. Ball.  All rights reserved.
  */
-package ball.jpa.ant.taskdefs;
+package ball.persistence.ant.taskdefs;
 
 import ball.util.BeanMap;
 import ball.util.MapUtil;

@@ -12,8 +12,8 @@
     <relativePath>../ball/parent/pom.xml</relativePath>
   </parent>
   <groupId>ball</groupId>
-  <artifactId>ball-jpa</artifactId>
-  <name>JPA Implementation (Hibernate)</name>
+  <artifactId>ball-persistence</artifactId>
+  <name>Persistence Implementation (Hibernate)</name>
   <packaging>jar</packaging>
   <properties>
     <jre.version>1.7</jre.version>
@@ -68,7 +68,7 @@
             <groups>
               <group>
                 <title>${project.name}</title>
-                <packages>ball.jpa.*</packages>
+                <packages>ball.persistence.*</packages>
               </group>
             </groups>
           </configuration>

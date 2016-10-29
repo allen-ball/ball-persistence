@@ -3,7 +3,7 @@
  *
  * Copyright 2016 Allen D. Ball.  All rights reserved.
  */
-package ball.jpa.entity;
+package ball.persistence.entity;
 
 import ball.util.BeanMap;
 

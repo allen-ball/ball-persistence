@@ -4,6 +4,6 @@
  * @author {@link.uri mailto:ball@iprotium.com Allen D. Ball}
  */
 @Manifest.Section
-package ball.jpa;
+package ball.persistence;
 
 import ball.annotation.Manifest;

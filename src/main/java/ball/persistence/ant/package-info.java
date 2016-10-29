@@ -4,11 +4,13 @@
  * Copyright 2016 Allen D. Ball.  All rights reserved.
  */
 /**
- * See {@link org.apache.tools.ant.taskdefs}.
+ * See {@link org.apache.tools.ant}.
  *
  * @author {@link.uri mailto:ball@iprotium.com Allen D. Ball}
  */
 @Manifest.Section
-package ball.jpa.ant.taskdefs;
+@AntLib
+package ball.persistence.ant;
 
 import ball.annotation.Manifest;
+import ball.util.ant.taskdefs.AntLib;
