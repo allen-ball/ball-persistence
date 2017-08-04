@@ -1,7 +1,7 @@
 /*
  * $Id$
  *
- * Copyright 2016 Allen D. Ball.  All rights reserved.
+ * Copyright 2016, 2017 Allen D. Ball.  All rights reserved.
  */
 package ball.persistence.entity;
 
@@ -21,5 +21,7 @@ public class AbstractEntity {
     protected AbstractEntity() { }
 
     @Override
-    public String toString() { return new BeanMap(this).toString(); }
+    public String toString() {
+        return getClass().getSimpleName() + new BeanMap(this).toString();
+    }
 }
