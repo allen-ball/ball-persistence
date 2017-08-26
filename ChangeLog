@@ -1,3 +1,9 @@
+2017-08-26  Allen D. Ball  <ball@sol>
+
+	* src/main/java/ball/persistence/entity/JSONEntity.java,
+	src/main/java/ball/persistence/entity/JSONEntityDeserializer.java:
+	Initial writing.
+
 2016-10-29  Allen D. Ball  <ball@sol.local>
 
 	* Renamed ball.jpa to ball.persistence.
