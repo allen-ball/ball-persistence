@@ -1,3 +1,8 @@
+2017-09-04  Allen D. Ball  <ball@sol>
+
+	* src/main/java/ball/persistence/entity/ModuleImpl.java:
+	Initial writing.
+
 2017-08-26  Allen D. Ball  <ball@sol>
 
 	* src/main/java/ball/persistence/entity/JSONEntity.java,
