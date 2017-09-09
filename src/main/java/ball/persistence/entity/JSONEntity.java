@@ -8,7 +8,6 @@ package ball.persistence.entity;
 import ball.databind.JSONBean;
 import ball.util.BeanMap;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import javax.persistence.Column;
 
 /**
@@ -17,7 +16,6 @@ import javax.persistence.Column;
  * @author {@link.uri mailto:ball@iprotium.com Allen D. Ball}
  * @version $Revision$
  */
-@JsonSerialize(using = JSONEntity.Serializer.class)
 public abstract class JSONEntity extends JSONBean {
     @Column(name = "json", length = Integer.MAX_VALUE, nullable = false)
     protected String string = null;
@@ -27,19 +25,20 @@ public abstract class JSONEntity extends JSONBean {
      */
     protected JSONEntity() { super(); }
 
-    /**
-     * Method to get this {@link JSONEntity} as a {@link JsonNode}.
-     *
-     * @return  The {@link JSONEntity} as a {@link JsonNode}.
-     */
     @Override
     public JsonNode asJsonNode() {
         synchronized (this) {
             if (node == null) {
-                try {
-                    node = OM.readTree(string);
-                } catch (Exception exception) {
-                    throw new IllegalStateException(exception);
+                String string = this.string;
+
+                if (string != null) {
+                    try {
+                        node = OM.readTree(string);
+                    } catch (RuntimeException exception) {
+                        throw exception;
+                    } catch (Exception exception) {
+                        throw new IllegalStateException(exception);
+                    }
                 }
             }
         }
@@ -55,7 +54,7 @@ public abstract class JSONEntity extends JSONBean {
 
                 if (node != null) {
                     try {
-                        string = JSONEntity.OM.writeValueAsString(node);
+                        string = OM.writeValueAsString(node);
                     } catch (Exception exception) {
                         throw new IllegalStateException(exception);
                     }
@@ -63,22 +62,6 @@ public abstract class JSONEntity extends JSONBean {
             }
         }
 
-        return ((string != null)
-                    ? string
-                    : (getClass().getSimpleName()
-                       + new BeanMap(this).toString()));
-    }
-
-    /**
-     * {@link JSONEntity}
-     * {@link com.fasterxml.jackson.databind.JsonSerializer}
-     * implementation.
-     */
-    public static class Serializer extends JSONBean.Serializer {
-
-        /**
-         * Sole constructor.
-         */
-        public Serializer() { super(); }
+        return (string != null) ? string : super.toString();
     }
 }
