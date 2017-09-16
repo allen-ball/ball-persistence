@@ -5,9 +5,9 @@
  */
 package ball.persistence.entity;
 
+import ball.databind.JSONBean;
 import ball.databind.JSONBeanDeserializer;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 
 /**
@@ -18,7 +18,8 @@ import java.io.IOException;
  * @author {@link.uri mailto:ball@iprotium.com Allen D. Ball}
  * @version $Revision$
  */
-public class JSONEntityDeserializer extends JSONBeanDeserializer {
+public class JSONEntityDeserializer<T extends JSONEntity>
+             extends JSONBeanDeserializer<T> {
 
     /**
      * Sole constructor.
@@ -29,20 +30,16 @@ public class JSONEntityDeserializer extends JSONBeanDeserializer {
      *                          (optional).  Must be subclasses of
      *                          {@code supertype}.
      */
-    @SafeVarargs
-    @SuppressWarnings({"varargs"})
-    public JSONEntityDeserializer(Class<? extends JSONEntity> supertype,
-                                  Class<? extends JSONEntity>... subtypes) {
+    public JSONEntityDeserializer(Class<? extends T> supertype,
+                                  Class<?>... subtypes) {
         super(supertype, subtypes);
     }
 
     @Override
-    public JSONEntity deserialize(JsonParser parser,
-                                  DeserializationContext context) throws IOException {
-        JSONEntity entity = (JSONEntity) super.deserialize(parser, context);
-
-        entity.string = OM.writeValueAsString(entity.asJsonNode());
-
-        return entity;
+    protected void initialize(JSONBean bean,
+                              JsonNode node,
+                              String string) throws IOException {
+        super.initialize(bean, node, string);
+        ((JSONEntity) bean).string = string;
     }
 }
