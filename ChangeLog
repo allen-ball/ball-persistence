@@ -1,3 +1,8 @@
+2017-10-17  Allen D. Ball  <ball@sol>
+
+	* src/main/java/ball/persistence/entity/JSONEntityTypeMap.java:
+	Initial writing.
+
 2017-09-04  Allen D. Ball  <ball@sol>
 
 	* src/main/java/ball/persistence/entity/ModuleImpl.java:
@@ -5,8 +10,7 @@
 
 2017-08-26  Allen D. Ball  <ball@sol>
 
-	* src/main/java/ball/persistence/entity/JSONEntity.java,
-	src/main/java/ball/persistence/entity/JSONEntityDeserializer.java:
+	* src/main/java/ball/persistence/entity/JSONEntity.java:
 	Initial writing.
 
 2016-10-29  Allen D. Ball  <ball@sol.local>

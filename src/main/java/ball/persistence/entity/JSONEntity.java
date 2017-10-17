@@ -25,7 +25,11 @@ public abstract class JSONEntity extends JSONBean {
      */
     protected JSONEntity() { super(); }
 
-    @Override
+    /**
+     * Method to get this {@link JSONEntity} as a {@link JsonNode}.
+     *
+     * @return  The {@link JSONEntity} as a {@link JsonNode}.
+     */
     public JsonNode asJsonNode() {
         synchronized (this) {
             if (node == null) {
