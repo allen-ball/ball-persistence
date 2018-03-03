@@ -1,3 +1,8 @@
+2018-03-03  Allen D. Ball  <ball@sol.local>
+
+	* src/main/java/ball/persistence/entity/JSONEntity.java:
+	Added JSON getter and setter for @Column definition.
+
 2017-10-17  Allen D. Ball  <ball@sol>
 
 	* src/main/java/ball/persistence/entity/JSONEntityTypeMap.java:

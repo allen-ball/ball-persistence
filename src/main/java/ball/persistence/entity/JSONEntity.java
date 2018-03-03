@@ -1,7 +1,7 @@
 /*
  * $Id$
  *
- * Copyright 2017 Allen D. Ball.  All rights reserved.
+ * Copyright 2017, 2018 Allen D. Ball.  All rights reserved.
  */
 package ball.persistence.entity;
 
@@ -9,6 +9,7 @@ import ball.databind.JSONBean;
 import ball.util.BeanMap;
 import com.fasterxml.jackson.databind.JsonNode;
 import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 
 /**
  * Abstract base class for {@link JSONBean} entities.
@@ -16,14 +17,18 @@ import javax.persistence.Column;
  * @author {@link.uri mailto:ball@iprotium.com Allen D. Ball}
  * @version $Revision$
  */
+@MappedSuperclass
 public abstract class JSONEntity extends JSONBean {
-    @Column(name = "json", length = Integer.MAX_VALUE, nullable = false)
     protected String string = null;
 
     /**
      * Sole constructor.
      */
     protected JSONEntity() { super(); }
+
+    @Column(length = Integer.MAX_VALUE, nullable = false)
+    public String getJSON() { return toString(); }
+    protected void setJSON(String string) { this.string = string; }
 
     /**
      * Method to get this {@link JSONEntity} as a {@link JsonNode}.
