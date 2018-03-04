@@ -19,6 +19,8 @@ import javax.persistence.MappedSuperclass;
  */
 @MappedSuperclass
 public abstract class JSONEntity extends JSONBean {
+    private static final long serialVersionUID = 286121280137732450L;
+
     protected String string = null;
 
     /**
