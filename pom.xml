@@ -16,7 +16,7 @@
   <name>Persistence Implementation (Hibernate)</name>
   <packaging>jar</packaging>
   <properties>
-    <jre.version>1.7</jre.version>
+    <jre.version>1.8</jre.version>
   </properties>
   <dependencies verbose="true">
     <dependency>
@@ -49,12 +49,12 @@
       <artifactId>jackson-datatype-hibernate${hibernate.major.version}</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-core</artifactId>
+      <groupId>javax.persistence</groupId>
+      <artifactId>javax.persistence-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.hibernate.javax.persistence</groupId>
-      <artifactId>hibernate-jpa-2.1-api</artifactId>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
     </dependency>
   </dependencies>
 </project>
