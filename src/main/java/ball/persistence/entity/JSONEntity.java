@@ -9,6 +9,7 @@ import ball.databind.JSONBean;
 import ball.util.BeanMap;
 import com.fasterxml.jackson.databind.JsonNode;
 import javax.persistence.Column;
+import javax.persistence.Lob;
 import javax.persistence.MappedSuperclass;
 
 /**
@@ -26,7 +27,7 @@ public abstract class JSONEntity extends JSONBean {
      */
     protected JSONEntity() { super(); }
 
-    @Column(length = Integer.MAX_VALUE)
+    @Column @Lob
     public String getJSON() {
         String string = null;
 
