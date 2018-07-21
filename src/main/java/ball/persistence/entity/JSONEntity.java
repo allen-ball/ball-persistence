@@ -19,18 +19,41 @@ import javax.persistence.MappedSuperclass;
  */
 @MappedSuperclass
 public abstract class JSONEntity extends JSONBean {
-    private static final long serialVersionUID = 286121280137732450L;
-
-    protected String string = null;
+    private static final long serialVersionUID = -7690003611785281916L;
 
     /**
      * Sole constructor.
      */
     protected JSONEntity() { super(); }
 
-    @Column(length = Integer.MAX_VALUE, nullable = false)
-    public String getJSON() { return toString(); }
-    protected void setJSON(String string) { this.string = string; }
+    @Column(length = Integer.MAX_VALUE)
+    public String getJSON() {
+        String string = null;
+
+        synchronized (this) {
+            try {
+                JsonNode node = this.node;
+
+                string = (node != null) ? OM.writeValueAsString(node) : null;
+            } catch (Exception exception) {
+                throw new IllegalStateException(exception);
+            }
+        }
+
+        return string;
+    }
+
+    protected void setJSON(String string) {
+        if (string != null) {
+            try {
+                node = OM.readTree(string);
+            } catch (Exception exception) {
+                throw new IllegalArgumentException(exception);
+            }
+        } else {
+            node = null;
+        }
+    }
 
     /**
      * Method to get this {@link JSONEntity} as a {@link JsonNode}.
@@ -38,20 +61,12 @@ public abstract class JSONEntity extends JSONBean {
      * @return  The {@link JSONEntity} as a {@link JsonNode}.
      */
     public JsonNode asJsonNode() {
-        synchronized (this) {
-            if (node == null) {
-                String string = this.string;
+        JsonNode node = this.node;
 
-                if (string != null) {
-                    try {
-                        node = OM.readTree(string);
-                    } catch (RuntimeException exception) {
-                        throw exception;
-                    } catch (Exception exception) {
-                        throw new IllegalStateException(exception);
-                    }
-                }
-            }
+        if (node != null) {
+            node = node.deepCopy();
+        } else {
+            node = OM.valueToTree(this);
         }
 
         return node;
@@ -59,20 +74,14 @@ public abstract class JSONEntity extends JSONBean {
 
     @Override
     public String toString() {
-        synchronized (this) {
-            if (string == null) {
-                JsonNode node = asJsonNode();
+        String string = null;
 
-                if (node != null) {
-                    try {
-                        string = OM.writeValueAsString(node);
-                    } catch (Exception exception) {
-                        throw new IllegalStateException(exception);
-                    }
-                }
-            }
+        try {
+            string = OM.writeValueAsString(asJsonNode());
+        } catch (Exception exception) {
+            throw new IllegalStateException(exception);
         }
 
-        return (string != null) ? string : super.toString();
+        return string;
     }
 }

@@ -1,7 +1,7 @@
 /*
  * $Id$
  *
- * Copyright 2017 Allen D. Ball.  All rights reserved.
+ * Copyright 2017, 2018 Allen D. Ball.  All rights reserved.
  */
 package ball.persistence.entity;
 
@@ -35,6 +35,6 @@ public abstract class JSONEntityTypeMap extends JSONBeanTypeMap {
                               ObjectCodec codec,
                               JsonNode node) throws IOException {
         super.initialize(object, codec, node);
-        ((JSONEntity) object).string = OM.writeValueAsString(node);
+        ((JSONEntity) object).setJSON(OM.writeValueAsString(node));
     }
 }
