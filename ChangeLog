@@ -1,4 +1,4 @@
-2018-07-21  Allen D. Ball  <ball@sol.local>
+2018-07-23  Allen D. Ball  <ball@sol.local>
 
 	* src/main/java/ball/persistence/entity/JSONEntity.java:
 	Allow JSON @Column to be nullable.

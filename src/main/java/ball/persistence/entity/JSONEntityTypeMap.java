@@ -1,7 +1,7 @@
 /*
  * $Id$
  *
- * Copyright 2017, 2018 Allen D. Ball.  All rights reserved.
+ * Copyright 2017 Allen D. Ball.  All rights reserved.
  */
 package ball.persistence.entity;
 
@@ -19,11 +19,7 @@ import java.io.IOException;
  * @version $Revision$
  */
 public abstract class JSONEntityTypeMap extends JSONBeanTypeMap {
-    private static final long serialVersionUID = -1055558641915834979L;
-
-    private static final ObjectMapper OM =
-        new ObjectMapper()
-        .configure(SerializationFeature.INDENT_OUTPUT, true);
+    private static final long serialVersionUID = 4058644186117804634L;
 
     /**
      * Sole constructor.
@@ -34,7 +30,10 @@ public abstract class JSONEntityTypeMap extends JSONBeanTypeMap {
     protected void initialize(Object object,
                               ObjectCodec codec,
                               JsonNode node) throws IOException {
-        super.initialize(object, codec, node);
-        ((JSONEntity) object).setJSON(OM.writeValueAsString(node));
+        JSONEntity entity = (JSONEntity) object;
+
+        super.initialize(entity, codec, node);
+
+        entity.setJson(((ObjectMapper) codec).writeValueAsString(node));
     }
 }
