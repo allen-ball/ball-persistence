@@ -30,10 +30,12 @@ public abstract class JSONEntityTypeMap extends JSONBeanTypeMap {
     protected void initialize(Object object,
                               ObjectCodec codec,
                               JsonNode node) throws IOException {
-        JSONEntity entity = (JSONEntity) object;
+        super.initialize(object, codec, node);
 
-        super.initialize(entity, codec, node);
+        if (object instanceof JSONEntity) {
+            JSONEntity entity = (JSONEntity) object;
 
-        entity.setJson(((ObjectMapper) codec).writeValueAsString(node));
+            entity.setJson(((ObjectMapper) codec).writeValueAsString(node));
+        }
     }
 }
