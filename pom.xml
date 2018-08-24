@@ -7,7 +7,7 @@
   <name>Persistence Implementation (Hibernate)</name>
   <groupId>ball</groupId>
   <artifactId>ball-persistence</artifactId>
-  <version>1.0.0</version>
+  <version>1.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   <modelVersion>4.0.0</modelVersion>
   <parent>
