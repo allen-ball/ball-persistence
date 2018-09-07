@@ -1,3 +1,8 @@
+2018-09-07  Allen D. Ball  <ball@sol.local>
+
+	* src/main/java/ball/persistence/embeddable/PersonName.java:
+	Added clear() method.
+
 2018-08-24  Allen D. Ball  <ball@sol.local>
 
 	* src/main/java/ball/persistence/embeddable/PersonName.java:

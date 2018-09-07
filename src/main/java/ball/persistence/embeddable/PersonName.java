@@ -46,6 +46,18 @@ public class PersonName {
     @Column @Lob
     private String alias = null;
 
+    /**
+     * Method to clear all fields.
+     */
+    public void clear() {
+        setTitle(null);
+        setFirst(null);
+        setMiddle(null);
+        setLast(null);
+        setSuffix(null);
+        setAlias(null);
+    }
+
     @Override
     public String toString() {
         String string = getAlias();
