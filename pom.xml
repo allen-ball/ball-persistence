@@ -30,7 +30,7 @@
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.datatype</groupId>
-      <artifactId>jackson-datatype-hibernate${hibernate.major.version}</artifactId>
+      <artifactId>jackson-datatype-hibernate5</artifactId>
     </dependency>
     <dependency>
       <groupId>javax.persistence</groupId>
