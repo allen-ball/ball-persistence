@@ -58,8 +58,6 @@
 
 2016-09-21  Allen D. Ball  <ball@sol.local>
 
-	* pom.xml: Added runtime dependencies.
-
 	* src/main/java/ball/jpa/ant/taskdefs/EntityManagerTask.java:
 	Initial writing.
 
