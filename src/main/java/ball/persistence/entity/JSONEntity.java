@@ -28,6 +28,7 @@ import lombok.NoArgsConstructor;
 public class JSONEntity extends JSONBean {
     private static final long serialVersionUID = -8802509358938963189L;
 
+    /** @serial */
     @Getter
     @Column @Lob
     protected String json = null;
