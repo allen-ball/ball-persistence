@@ -1,7 +1,7 @@
 /*
  * $Id$
  *
- * Copyright 2016 Allen D. Ball.  All rights reserved.
+ * Copyright 2016 - 2018 Allen D. Ball.  All rights reserved.
  */
 package ball.persistence.ant.taskdefs;
 
@@ -10,6 +10,7 @@ import ball.util.MapUtil;
 import ball.util.PropertiesImpl;
 import ball.util.ant.taskdefs.AbstractClasspathTask;
 import ball.util.ant.taskdefs.AntTask;
+import ball.util.ant.taskdefs.ConfigurableAntTask;
 import ball.util.ant.taskdefs.NotNull;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -28,7 +29,8 @@ import org.apache.tools.ant.BuildException;
  * @author {@link.uri mailto:ball@iprotium.com Allen D. Ball}
  * @version $Revision$
  */
-public abstract class EntityManagerTask extends AbstractClasspathTask {
+public abstract class EntityManagerTask extends AbstractClasspathTask
+                                        implements ConfigurableAntTask {
     protected PropertiesImpl properties = null;
     private String persistenceUnit = null;
     private EntityManagerFactory factory = null;
@@ -97,7 +99,6 @@ public abstract class EntityManagerTask extends AbstractClasspathTask {
 
         properties = new PropertiesImpl();
         MapUtil.copy(getProject().getProperties(), properties);
-        properties.configure(this);
     }
 
     /**
