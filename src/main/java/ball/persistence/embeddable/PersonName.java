@@ -1,7 +1,7 @@
 /*
  * $Id$
  *
- * Copyright 2018 Allen D. Ball.  All rights reserved.
+ * Copyright 2018, 2019 Allen D. Ball.  All rights reserved.
  */
 package ball.persistence.embeddable;
 
@@ -15,7 +15,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import static ball.util.StringUtil.isNil;
+import static org.apache.commons.lang3.StringUtils.SPACE;
+import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 /**
  * {@bean.info}
@@ -62,11 +63,11 @@ public class PersonName {
     public String toString() {
         String string = getAlias();
 
-        if (isNil(string)) {
+        if (isEmpty(string)) {
             string =
                 Stream.of(title, first, middle, last, suffix)
-                .filter(s -> (! isNil(s)))
-                .collect(Collectors.joining(" "));
+                .filter(s -> (! isEmpty(s)))
+                .collect(Collectors.joining(SPACE));
         }
 
         return string;
