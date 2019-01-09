@@ -1,7 +1,7 @@
 /*
  * $Id$
  *
- * Copyright 2016 - 2018 Allen D. Ball.  All rights reserved.
+ * Copyright 2016 - 2019 Allen D. Ball.  All rights reserved.
  */
 package ball.persistence.ant.taskdefs;
 
@@ -17,7 +17,13 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.metamodel.EntityType;
 import javax.persistence.metamodel.Metamodel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.apache.tools.ant.BuildException;
+
+import static lombok.AccessLevel.PROTECTED;
 
 /**
  * Abstract {@link.uri http://ant.apache.org/ Ant} base
@@ -29,28 +35,20 @@ import org.apache.tools.ant.BuildException;
  * @author {@link.uri mailto:ball@iprotium.com Allen D. Ball}
  * @version $Revision$
  */
+@NoArgsConstructor(access = PROTECTED)
 public abstract class EntityManagerTask extends AbstractClasspathTask
                                         implements ConfigurableAntTask {
     protected PropertiesImpl properties = null;
-    private String persistenceUnit = null;
     private EntityManagerFactory factory = null;
     private EntityManager manager = null;
-
-    /**
-     * Sole constructor.
-     */
-    protected EntityManagerTask() { super(); }
-
-    @NotNull
-    public String getPersistenceUnit() { return persistenceUnit; }
-    public void setPersistenceUnit(String string) { persistenceUnit = string; }
+    @NotNull @Getter @Setter
+    private String persistenceUnit = null;
 
     /**
      * Method to lazily create an {@link EntityManagerFactory}.
      *
      * @return  The {@link EntityManagerFactory}.
      *
-     * @see #getPersistenceUnit()
      * @see #properties
      * @see Persistence#createEntityManagerFactory(String,Map)
      */
@@ -109,13 +107,8 @@ public abstract class EntityManagerTask extends AbstractClasspathTask
      * {@bean.info}
      */
     @AntTask("em-create")
+    @NoArgsConstructor @ToString
     public static class Create extends EntityManagerTask {
-
-        /**
-         * Sole constructor.
-         */
-        public Create() { super(); }
-
         @Override
         public void execute() throws BuildException {
             super.execute();
