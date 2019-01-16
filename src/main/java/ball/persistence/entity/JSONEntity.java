@@ -1,7 +1,7 @@
 /*
  * $Id$
  *
- * Copyright 2017, 2018 Allen D. Ball.  All rights reserved.
+ * Copyright 2017 - 2019 Allen D. Ball.  All rights reserved.
  */
 package ball.persistence.entity;
 
@@ -18,6 +18,8 @@ import lombok.NoArgsConstructor;
 
 /**
  * Abstract base class for {@link JSONBean} entities.
+ *
+ * {@bean.info}
  *
  * @author {@link.uri mailto:ball@iprotium.com Allen D. Ball}
  * @version $Revision$
