@@ -6,7 +6,6 @@
 package ball.persistence.entity;
 
 import ball.databind.JSONBean;
-import ball.util.BeanMap;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import javax.persistence.Column;
