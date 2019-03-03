@@ -23,9 +23,9 @@ import lombok.NoArgsConstructor;
  * @author {@link.uri mailto:ball@iprotium.com Allen D. Ball}
  * @version $Revision$
  */
+@MappedSuperclass
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-@MappedSuperclass
 public class JSONEntity extends JSONBean {
     private static final long serialVersionUID = -8802509358938963189L;
 
