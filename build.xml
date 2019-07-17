@@ -19,6 +19,14 @@
   </resolver:resolve>
   <import file="${ball:parent:xml}"/>
 
+  <target name="list-providers"
+          description="--> Invokes &lt;list-providers/&gt; task."
+          depends="jar-classes">
+    <taskdef classpathref="runtime.classpath"
+             resource="ball/persistence/ant/defaults.properties"/>
+    <list-providers/>
+  </target>
+
   <target name="generate-schema"
           description="--> Invokes &lt;generate-schema/&gt; task."
           depends="jar-classes">

@@ -10,6 +10,8 @@ import ball.util.ant.taskdefs.AntTask;
 import ball.util.ant.taskdefs.ClasspathDelegateAntTask;
 import ball.util.ant.taskdefs.ConfigurableAntTask;
 import ball.util.ant.taskdefs.NotNull;
+import javax.persistence.spi.PersistenceProviderResolver;
+import javax.persistence.spi.PersistenceProviderResolverHolder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -38,8 +40,6 @@ public abstract class PersistenceTask extends Task
                                                  ConfigurableAntTask {
     @Getter @Setter @Accessors(chain = true, fluent = true)
     private ClasspathUtils.Delegate delegate = null;
-    @NotNull @Getter @Setter
-    private String name = null;
 
     @Override
     public void init() throws BuildException {
@@ -55,6 +55,33 @@ public abstract class PersistenceTask extends Task
     }
 
     /**
+     * {@link.uri http://ant.apache.org/ Ant} {@link Task} to list available
+     * {@link javax.persistence.spi.PersistenceProvider}s.
+     *
+     * {@bean.info}
+     */
+    @AntTask("list-providers")
+    @NoArgsConstructor @ToString
+    public static class ListProviders extends PersistenceTask {
+        @Override
+        public void execute() throws BuildException {
+            super.execute();
+
+            try {
+                PersistenceProviderResolver resolver =
+                    PersistenceProviderResolverHolder.getPersistenceProviderResolver();
+
+                log(String.valueOf(resolver.getPersistenceProviders()));
+            } catch (BuildException exception) {
+                throw exception;
+            } catch (Throwable throwable) {
+                throwable.printStackTrace();
+                throw new BuildException(throwable);
+            }
+        }
+    }
+
+    /**
      * {@link.uri http://ant.apache.org/ Ant} {@link Task} to generate
      * schema.
      *
@@ -63,6 +90,9 @@ public abstract class PersistenceTask extends Task
     @AntTask("generate-schema")
     @NoArgsConstructor @ToString
     public static class GenerateSchema extends PersistenceTask {
+        @NotNull @Getter @Setter
+        private String name = null;
+
         @Override
         public void execute() throws BuildException {
             super.execute();

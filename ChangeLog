@@ -1,3 +1,8 @@
+2019-07-17  Allen D. Ball  <ball@sol.local>
+
+	* src/main/java/ball/persistence/ant/taskdefs/PersistenceTask.java:
+	Added <list-providers/> Ant Task and target.
+
 2019-07-16  Allen D. Ball  <ball@sol.local>
 
 	* src/main/java/ball/persistence/ant/taskdefs/PersistenceTask.java:
