@@ -26,10 +26,8 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
  * @author {@link.uri mailto:ball@hcf.dev Allen D. Ball}
  * @version $Revision$
  */
-@NoArgsConstructor
-@Getter @Setter
-@EqualsAndHashCode(callSuper = false)
 @Embeddable
+@NoArgsConstructor @Getter @Setter @EqualsAndHashCode(callSuper = false)
 public class PersonName {
     @Column(length = 12)
     private String title = null;

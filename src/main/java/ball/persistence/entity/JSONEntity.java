@@ -1,7 +1,7 @@
 /*
  * $Id$
  *
- * Copyright 2017 - 2019 Allen D. Ball.  All rights reserved.
+ * Copyright 2017 - 2020 Allen D. Ball.  All rights reserved.
  */
 package ball.persistence.entity;
 
@@ -24,14 +24,13 @@ import lombok.NoArgsConstructor;
  * @version $Revision$
  */
 @MappedSuperclass
-@NoArgsConstructor
-@EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor @EqualsAndHashCode(callSuper = false)
 public class JSONEntity extends JSONBean {
     private static final long serialVersionUID = -8802509358938963189L;
 
     /** @serial */
-    @Getter
     @Column @Lob
+    @Getter
     protected String json = null;
 
     protected void setJson(String string) {
