@@ -13,7 +13,7 @@
 
   <resolver:resolve>
     <dependencies>
-      <dependency coords="ball:parent:20200102.0:xml:compile"/>
+      <dependency coords="ball:parent:20200117.0:xml:compile"/>
     </dependencies>
     <properties/>
   </resolver:resolve>
@@ -22,7 +22,7 @@
   <target name="list-providers"
           description="--> Invokes &lt;list-providers/&gt; task."
           depends="jar-classes">
-    <taskdef classpathref="runtime.classpath"
+    <taskdef classpathref="build.classpath"
              resource="ball/persistence/ant/defaults.properties"/>
     <list-providers/>
   </target>
@@ -30,7 +30,7 @@
   <target name="generate-schema"
           description="--> Invokes &lt;generate-schema/&gt; task."
           depends="jar-classes">
-    <taskdef classpathref="runtime.classpath"
+    <taskdef classpathref="build.classpath"
              resource="ball/persistence/ant/defaults.properties"/>
     <generate-schema/>
   </target>
@@ -38,7 +38,7 @@
   <target name="sql"
           description="--> Invokes &lt;sql/&gt; task."
           depends="jar-classes">
-    <sql classpathref="runtime.classpath"
+    <sql classpathref="build.classpath"
          driver="${driver}"
          url="${url}" userId="${userId}" password="${password}">
       ${sql}

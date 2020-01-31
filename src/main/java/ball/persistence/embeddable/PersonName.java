@@ -1,7 +1,7 @@
 /*
  * $Id$
  *
- * Copyright 2018, 2019 Allen D. Ball.  All rights reserved.
+ * Copyright 2018 - 2020 Allen D. Ball.  All rights reserved.
  */
 package ball.persistence.embeddable;
 
@@ -19,15 +19,15 @@ import static org.apache.commons.lang3.StringUtils.SPACE;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 /**
+ * {@link PersonName} {@link Embeddable}.
+ *
  * {@bean.info}
  *
  * @author {@link.uri mailto:ball@hcf.dev Allen D. Ball}
  * @version $Revision$
  */
-@NoArgsConstructor
-@Getter @Setter
-@EqualsAndHashCode(callSuper = false)
 @Embeddable
+@NoArgsConstructor @Getter @Setter @EqualsAndHashCode(callSuper = false)
 public class PersonName {
     @Column(length = 12)
     private String title = null;

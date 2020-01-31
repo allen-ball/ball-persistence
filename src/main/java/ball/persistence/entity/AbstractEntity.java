@@ -1,7 +1,7 @@
 /*
  * $Id$
  *
- * Copyright 2016 - 2019 Allen D. Ball.  All rights reserved.
+ * Copyright 2016 - 2020 Allen D. Ball.  All rights reserved.
  */
 package ball.persistence.entity;
 
@@ -16,7 +16,6 @@ import static lombok.AccessLevel.PROTECTED;
  * @author {@link.uri mailto:ball@hcf.dev Allen D. Ball}
  * @version $Revision$
  */
-@NoArgsConstructor(access = PROTECTED)
-@ToString
+@NoArgsConstructor(access = PROTECTED) @ToString
 public class AbstractEntity {
 }
