@@ -23,6 +23,7 @@ package ball.persistence.entity;
 import ball.annotation.ServiceProviderFor;
 import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import lombok.ToString;
 
 /**
  * {@link Module} service provider for {@link ball.persistence.entity}.
@@ -31,6 +32,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
  * @version $Revision$
  */
 @ServiceProviderFor({ Module.class })
+@ToString
 public class ModuleImpl extends SimpleModule {
     private static final long serialVersionUID = 3636104653602191146L;
 
@@ -45,7 +47,4 @@ public class ModuleImpl extends SimpleModule {
     public void setupModule(Module.SetupContext context) {
         super.setupModule(context);
     }
-
-    @Override
-    public String toString() { return super.toString(); }
 }
