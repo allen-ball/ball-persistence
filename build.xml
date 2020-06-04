@@ -43,7 +43,7 @@
           description="--> Invokes &lt;list-providers/&gt; task."
           depends="jar-classes">
     <taskdef classpathref="build.classpath"
-             resource="ball/persistence/ant/defaults.properties"/>
+             resource="ball/persistence/ant/antlib.xml"/>
     <list-providers/>
   </target>
 
@@ -51,7 +51,7 @@
           description="--> Invokes &lt;generate-schema/&gt; task."
           depends="jar-classes">
     <taskdef classpathref="build.classpath"
-             resource="ball/persistence/ant/defaults.properties"/>
+             resource="ball/persistence/ant/antlib.xml"/>
     <generate-schema/>
   </target>
 
