@@ -1,0 +1,5 @@
+ball.persistence
+ball.persistence.ant
+ball.persistence.ant.taskdefs
+ball.persistence.embeddable
+ball.persistence.entity

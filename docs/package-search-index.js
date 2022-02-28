@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"ball.persistence"},{"l":"ball.persistence.ant"},{"l":"ball.persistence.ant.taskdefs"},{"l":"ball.persistence.embeddable"},{"l":"ball.persistence.entity"}]
