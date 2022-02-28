@@ -1,11 +1,14 @@
-Persistence Implementation (Hibernate)
-======================================
+Persistence Implementation Classes
+==================================
 
 
 Description
 -----------
 
-Common entity classes for `javax.persistence` sometimes specific to Hibernate.
+Common entity classes for
+[javax.persistence](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/package-summary.html).
+This package has been retired and all non-trivial classes have been moved to
+[ball-databind](https://github.com/allen-ball/ball-databind).
 
 
 License
