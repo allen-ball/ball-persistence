@@ -10,6 +10,8 @@ Common entity classes for
 This package has been retired and all non-trivial classes have been moved to
 [ball-databind](https://github.com/allen-ball/ball-databind).
 
+Javadoc is published at <https://allen-ball.github.io/ball-persistence/>.
+
 
 License
 -------
